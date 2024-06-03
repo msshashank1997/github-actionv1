@@ -23,7 +23,7 @@ jobs:
     # Build Docker image
     - name: Build Docker image
       run: |
-        docker build . -t myacr.azurecr.io/my-app:latest
+        docker build . -t testcontinerinstanse.azurecr.io/my-app:latest
 
     # Log in to Azure Container Registry
     - name: Log in to Azure Container Registry
@@ -33,4 +33,4 @@ jobs:
     # Push Docker image to Azure Container Registry
     - name: Push Docker image
       run: |
-        docker push myacr.azurecr.io/my-app:latest
+        docker push testcontinerinstanse.azurecr.io/my-app:latest
