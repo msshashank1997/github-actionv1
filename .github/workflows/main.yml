@@ -20,6 +20,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    # List files in the current directory
+    - name: List files
+      run: ls -la
+
     # Build Docker image
     - name: Build Docker image
       run: |
