@@ -1,0 +1,26 @@
+name: Example Workflow with Conditional Steps
+
+on: [push, pull_request]
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run tests
+      run: npm test
+
+    - name: Deploy on main branch
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: echo "Deploying to production..."
+
+    - name: Notify on pull requests
+      if: github.event_name == 'pull_request'
+      run: echo "This is a pull request..."
+
+    - name: Always run
+      if: always()
+      run: echo "This step always runs, no matter what."
