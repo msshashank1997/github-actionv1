@@ -1,11 +1,11 @@
-# Use an official Nginx runtime as a parent image
-FROM nginx:latest
+# Use an official nginx image as the base image
+FROM nginx:alpine
 
-# Copy the HTML file to the Nginx container
-COPY index.html /usr/share/nginx/html
+# Copy the HTML file to the nginx HTML directory
+COPY index.html /usr/share/nginx/html/index.html
 
-# Make port 80 available to the outside of the Docker container
+# Expose port 80 to the outside world
 EXPOSE 80
 
-# Start Nginx when the container launches
+# Command to run the nginx server
 CMD ["nginx", "-g", "daemon off;"]
