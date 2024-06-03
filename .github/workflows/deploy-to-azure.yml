@@ -1,0 +1,30 @@
+name: Deploying Azure Webapp
+
+env:
+  OUTPUT_PATH: ${{ github.workspace }}
+  RESOURCE_GROUP_REGION: eastus
+
+on:
+  workflow_dispatch:
+
+jobs:
+      
+  # Deploying Azure Webapp
+  DeployVM:
+    runs-on: windows-latest
+
+    steps:
+    # Deploying Azure Webapp
+    - name: checkout repo
+      uses: actions/checkout@v1
+
+    - name: look for ps1 file
+      run: |
+        ls '${{ env.OUTPUT_PATH }}'
+    - name: Deploying Azure Webapp
+      run: >
+          powershell -command "& '${{ env.OUTPUT_PATH }}/deploy-webapp.ps1'"  
+          -resourceGroupNameRegion ${{ env.RESOURCE_GROUP_REGION }}
+          -deploymentid ${{ secret.DeploymentID }}
+          -Username ${{ secret.Username }}
+          -Password ${{ secret.Password }}
