@@ -23,7 +23,7 @@ jobs:
     # Build Docker image
     - name: Build Docker image
       run: |
-        docker buildx build ../../docker/ . -t testcontinerinstanse.azurecr.io/my-app:latest
+        docker buildx build docker/ -t testcontinerinstanse.azurecr.io/my-app:latest
 
     # Log in to Azure Container Registry
     - name: Log in to Azure Container Registry
