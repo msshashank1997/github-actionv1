@@ -1,5 +1,5 @@
 name: Deploying Azure Webapp
-
+ 
 env:
   OUTPUT_PATH: ${{ github.workspace }}
   RESOURCE_GROUP_REGION: eastus
