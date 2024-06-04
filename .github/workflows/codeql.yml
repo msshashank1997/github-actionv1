@@ -22,7 +22,7 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
-        languages: "javascript,python" # list of languages to analyze
+        languages: "javascript,python,powershell" # list of languages to analyze
 
     # Performs the actual analysis
     - name: Analyze
